@@ -1,0 +1,28 @@
+
+
+nav {
+  color: #FFFFFF;
+  background-color: #4056a1;
+  height: 120px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+
+  font-weight: 600;
+}
+
+nav #logo {
+  font-family: Bungee , sans-serif;
+  position: relative;
+  right: 1.5em;
+  left: 1.5em;
+  top: 1.5em;
+}
+
+nav #new-post {
+  position: relative;
+  right: 1.5em;
+  left: 80%;
+  top: 1.5em;
+  bottom: 1.5em;
+}
