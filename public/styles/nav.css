@@ -7,20 +7,20 @@ nav {
   width: 100%;
   position: fixed;
   top: 0;
-
+  z-index: 2;
   font-weight: 600;
 }
 
 nav #logo {
   font-family: Bungee , sans-serif;
-  position: relative;
+  position: absolute;
   right: 1.5em;
   left: 1.5em;
   top: 1.5em;
 }
 
 nav #new-post {
-  position: relative;
+  position: absolute;
   right: 1.5em;
   left: 80%;
   top: 1.5em;
