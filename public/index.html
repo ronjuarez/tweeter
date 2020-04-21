@@ -17,6 +17,9 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
 
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -31,7 +34,7 @@
       <p id="new-post"> Write a new post </p>
     </nav>
     
-    <header>
+    <header id="main-header">
       <div id="avatar">
           <img src="/images/profile-hex.png"> 
       </div>
@@ -40,15 +43,30 @@
           <h2>Your Name</h2>
       </div>
     </header>
-    <!-- Page-specific (main) content here -->
-    <main class="container">
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia a aliquid temporibus amet excepturi accusamus, ad doloribus quo culpa sunt minima assumenda, nostrum nihil suscipit fugit voluptates voluptas incidunt porro!
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia deleniti laborum doloribus ullam iste, dolore unde recusandae, minus eum voluptates beatae temporibus architecto accusamus quidem ratione vero maxime! Ea, dolorum.
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet ab ratione, delectus amet repellendus porro cumque asperiores. Soluta cum, officia beatae facere odio ut, excepturi quod eos placeat illo id
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. At sed error dolor adipisci vero voluptatem exercitationem, iusto veniam cum laboriosam quod esse! Distinctio fugiat sint nulla ratione eos ullam nesciunt.
-      </p>
 
+    <main class="container">
+
+      
+      <section class="new-tweet">
+
+      <h2>Compose Tweet</h2>
+        <header>
+          <label for="tweet-text">What are you humming about?</label> 
+        </header>
+        
+        <form action="/tweets" method="POST">
+        <textarea name="text" id="tweet-text"></textarea>
+          
+          
+          <footer>
+            <button type="submit" id="tweet-btn">Tweet</button> 
+            <output name="counter" class="counter" for="tweet-text">140</output>
+          </footer>
+        
+        </form>
+      </section>
+  
     </main>
+  
   </body>
 </html>
