@@ -1,0 +1,31 @@
+
+form.new-tweet{
+  width: 90%;
+  margin: 0% 5% 0% 5%;
+}
+
+
+.new-tweet {
+  position: relative;
+  top: 5%;
+  
+}
+
+textarea {
+  top: 100%;
+  border: 0px 0px 5px 0px;
+  border-bottom: solid grey;
+  min-width: 100%;
+}
+
+.counter {
+  float: right;
+}
+
+#tweet-btn {
+  /* position: absolute; */
+  top: 340%;
+  background-color: #4056a1;
+  font-family: bungee;
+  color: white;
+}
