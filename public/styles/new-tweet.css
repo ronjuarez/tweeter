@@ -20,6 +20,11 @@ textarea {
 
 .counter {
   float: right;
+  
+}
+
+.negative {
+  color: red
 }
 
 #tweet-btn {
