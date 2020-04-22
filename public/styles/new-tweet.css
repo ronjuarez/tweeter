@@ -6,8 +6,9 @@ form.new-tweet{
 
 
 .new-tweet {
-  position: relative;
+  position: absolute;
   top: 5%;
+  width: 100%;
   
 }
 
