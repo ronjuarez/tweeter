@@ -31,8 +31,8 @@ const data = [
 
 const renderTweets = function(tweets) {
   const renderedPosts = createTweetElement(tweets);
-  $('.tweet-display').append(renderedPosts);
-  console.log(renderedPosts)
+  $('.tweet-container').append(renderedPosts);
+
 }
 
 
@@ -46,7 +46,7 @@ const createTweetElement = function(tweets) {
     const { created_at } = tweet;
 
     markupArray.push(`
-    <article>
+    <article class ="tweet-display">
       <header>
         <i class="${avatars}"></i>
         <span class="full-name">${name}</span>
@@ -69,9 +69,37 @@ const createTweetElement = function(tweets) {
   }
   return markupArray.join('') 
 }
+
+
+
+
 $(document).ready(function() {
   renderTweets(data);
+
+  $('form').submit(function(event) { 
+    event.preventDefault();
+    
+    const $tweetInput = $('form').serialize();
+    $.ajax({
+      url: '/tweets',
+      type: "POST",
+      dataType: 'string',
+      data: $tweetInput
+    })
+
+    .then ((response) => {
+      renderTweets()
+    }) 
+    .catch (() => {
+      const error = "Error"
+    })
+  })
 });
+
+
+
+
+
 
 //   let $tweet = $('<article>');
 

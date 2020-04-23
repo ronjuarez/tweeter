@@ -7,7 +7,7 @@ nav {
   width: 100%;
   position: fixed;
   top: 0;
-  z-index: 2;
+  z-index: 3;
   font-weight: 600;
 }
 
