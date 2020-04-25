@@ -8,21 +8,26 @@ nav {
   position: fixed;
   top: 0;
   z-index: 3;
-  font-weight: 600;
+  display: flex
+}
+
+#logo-container {
+  flex-grow: 1;
+}
+
+#new-post-container {
+  flex-grow: 2;
 }
 
 nav #logo {
   font-family: Bungee , sans-serif;
-  position: absolute;
-  right: 1.5em;
-  left: 1.5em;
-  top: 1.5em;
+  float: left;
+  margin: 1.5em;
 }
 
 nav #new-post {
-  position: absolute;
-  right: 1.5em;
-  left: 80%;
-  top: 1.5em;
-  bottom: 1.5em;
+  float: right;
+  margin: 1.75em;
+  font-size: 19px;
+  font-weight: 500;
 }
