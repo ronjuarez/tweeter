@@ -1,22 +1,15 @@
 #main-header {
   color: #FFFFFF;
-  background-color: #d9bc00;
-  background-image: url("https://www.transparenttextures.com/patterns/bedge-grunge.png");
-  height: 400px;
+  background-color: #d0bb3c;
   width: 100%;
-  position: relative;
-  top: 120px;
-  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
 }
 
-header #avatar {
-  position: absolute;
-  right: 40%;
-  top: 10%;
-}
-
-header #username {
-  position: absolute;
-  right: 43%;
-  bottom: 3%;
+#username {
+  font-size: 32px;
+  font-weight: 500;
 }
