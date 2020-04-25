@@ -8,7 +8,8 @@ $(document).ready(function() {
 
 const renderTweets = function(tweets) {
   const renderedPosts = createTweetElement(tweets);
-  $('.tweet-container').prepend(renderedPosts);
+
+  $('#tweet-container').prepend(renderedPosts);
 }
 
 const loadTweets = () => {
@@ -17,7 +18,6 @@ const loadTweets = () => {
     type: "GET",
     dataType: "JSON"
   }).then(response => {
-    console.log('response from getting tweets is: ', response);
     renderTweets(response);
   })
 }
@@ -59,16 +59,30 @@ const createTweetElement = function(tweets) {
   $('form').submit(function(event) { 
     event.preventDefault();
 
-    let totalChar = $('#tweet-text').val();    
+    let totalChar = $('#tweet-text').val(); 
+    
+    const renderError = (message) =>{
+      console.log(`rendering error`)
+      $('#validation-error').slideDown("slow", function() {
+        
+        $(this).css("visibility", "visible");
+        $(this).html('')
+        $(this).append(`<span>${message}</span>`)
+      });
+    }    
 
     if (totalChar === '' || totalChar === null) {
-      alert('Invalid Tweet: Add a tweet');
+      renderError('Invalid Tweet: Add a tweet');
+      return false;
     }
 
     if (totalChar.length > 140){
-      alert('Invalid Tweet: Your Tweet is too Long!')
+      renderError('Invalid Tweet: Your Tweet is too Long!');
+      return false;
     }
-    
+
+
+  
     const $tweetInput = $('form').serialize();
     console.log('tweetInput: ', $tweetInput);
   
