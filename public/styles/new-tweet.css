@@ -1,9 +1,19 @@
 
-.new-tweet{
+.new-tweet {
   width: 90%;
   margin: 5px 0 50px 0;
 
 }
+
+#validation-error {
+  border: 2px solid red;
+  padding: 3%;
+  font-size: 16px;
+  text-align: center;
+  color: red;
+  display: none;
+}
+
 
 
 .new-tweet {
