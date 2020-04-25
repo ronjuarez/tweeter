@@ -54,11 +54,14 @@
 
       
       <section class="new-tweet">
+        <div id="validation-error">
+        </div>
 
         <h2>Compose Tweet</h2>
           <header>
           <label for="tweet-text">What are you humming about?</label> 
           </header>
+        
         
           <form action="/tweets" method="POST">
           <textarea name="text" id="tweet-text"></textarea>
