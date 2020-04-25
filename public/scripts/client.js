@@ -4,37 +4,23 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
+$(document).ready(function() {
 
 const renderTweets = function(tweets) {
   const renderedPosts = createTweetElement(tweets);
-  $('.tweet-container').append(renderedPosts);
-
+  $('.tweet-container').prepend(renderedPosts);
 }
 
+const loadTweets = () => {
+  $.ajax({
+    url: "/tweets",
+    type: "GET",
+    dataType: "JSON"
+  }).then(response => {
+    console.log('response from getting tweets is: ', response);
+    renderTweets(response);
+  })
+}
 
 const createTweetElement = function(tweets) {
 
@@ -52,11 +38,9 @@ const createTweetElement = function(tweets) {
         <span class="full-name">${name}</span>
         <span class="username">${handle}</span>
       </header>
-
       <p class="tweet">
       <span>${text}</span> 
       </p>
-
     <footer> 
       <span class="days-elapsed">${created_at}</span> 
       <div class="icons">
@@ -67,77 +51,40 @@ const createTweetElement = function(tweets) {
     </article>
     `)
   }
-  return markupArray.join('') 
+
+  return markupArray.reverse().join('');
 }
 
 
-
-
-$(document).ready(function() {
-  renderTweets(data);
-
   $('form').submit(function(event) { 
     event.preventDefault();
+
+    let totalChar = $('#tweet-text').val();    
+
+    if (totalChar === '' || totalChar === null) {
+      alert('Invalid Tweet: Add a tweet');
+    }
+
+    if (totalChar.length > 140){
+      alert('Invalid Tweet: Your Tweet is too Long!')
+    }
     
     const $tweetInput = $('form').serialize();
+    console.log('tweetInput: ', $tweetInput);
+  
     $.ajax({
       url: '/tweets',
       type: "POST",
-      dataType: 'string',
       data: $tweetInput
     })
-
-    .then ((response) => {
-      renderTweets()
+    .then((response) => {
+      renderTweets([response]);
     }) 
-    .catch (() => {
-      const error = "Error"
+    .catch((error) => {
+      console.log('error: ', error);
     })
   })
+
+  loadTweets();
 });
 
-
-
-
-
-
-//   let $tweet = $('<article>');
-
-// let $header = $('<header>');
-
-// $('<span>').addclass('full-name')
-//   .text(tweet.user.name)
-//   .appendTo($header)
-
-// $('<span>').addclass('username')
-//   .text(tweet.user.handle)
-//   .appendTo($header)
-
-// $tweet.append($header);
-
-// let $post = $('<p>');
-
-// $('<span>')
-//   .text(tweet.user.handle)
-//   .appendTo($post)
-
-// $tweet.append($post)
-
-// let $footer = $('<footer>')
-
-// $('<span>').addclass('days-elapsed')
-//   .text(tweet.created_at)
-//   .appendTo($footer)
-
-// let iconsArray = ['fa-flag', 'fa-heart', 'fa-retweet']
-
-// $('<div>').addclass('icons').each(function(i) {
-//   $(this).append(`<i class="fa ${iconsArray[i]}><i>`)
-// }).appendTo($footer)
-
-// $tweet.append($footer)
-
-// return $tweet;
-// }
-
-// renderTweets(data);
