@@ -12,16 +12,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,600&display=swap" rel="stylesheet">
 
     <!-- App CSS -->
+    <!-- WE CREATED SEPERATE STYLES SHEETS FOR BETTER MODULARITY. EACH STYLE IS ASSOCIATED WITH DIFFERENT SECTIONS
+    OF THE PAGE. WITH THE EXCEPTION OF THE LAYOUT STYLE SHEET WHICH DEALS WITH THE LAYOURT OF THE ENTIRE PAGE. 
+    STYLESHEETS CAN ALL BE FOUND AT public/styles/client.js, ALTHOUGH THESE ARE LABELED AS CLEARLY AS POSSIBLE 
+    BELOW THE OPENING TAG OF EACH SECTION YOU WILL FIND THE NAME OF THE CSS FILE THAT IT IS ASSOCIATED WITH IN A COMMENT.
+
+    *** BEFORE ACCESSING EACH STYLESHEET PLEASE READ THE FOLLOWING NOTE ON THE MEDIA QUERIES THAT ARE USED ON EACH OF THESE. ***
+  
+    THIS PAGE CURRENTLY HAS A RESPONSIVE DESIGN AND CHANGES IT'S LAYOUT COMPLETELY DEPENDING ON WHETHER IT IS VIEWED ON SMALLER
+    (< = 768pxs) OR LARGER SCREENS (> 768px). AT THE MOMENT THIS IS PASSING TESTS FOR DIFFERENT SCREENSIZES, HOWEVER, WE ARE 
+    AWARE THAT THE WAY THAT EACH MEDIA QUERY IS STRUCTURED IN EACH STYLE SHEET IS INCORRECT. THIS WILL BE FIXED IN FUTURE 
+    UPDATES TO THIS PROJECT AFTER RECIEVING FEEDBACK FROM LHL MENTORS. -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
-
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
-
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
-
     <link rel="stylesheet" href="/styles/tweet-display.css" type="text/css" />
 
+    <!-- THIS EXTERNAL STYLESHEET FROM FONTAWESOME IS USED TO GENERATE THE THREE ICONS THAT APPEAR IN EACH NEW
+    TWEEET ON THIER BOTTOM RIGHT CORNERS. -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- External JS -->
@@ -29,24 +38,35 @@
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
+    
+    <!-- WE IMPLEMENTED THIS TIMEAGO SCRIPT TO BE ABLE TO DETERMINE HOW LONG AGO (TO THE PRECISE SECOND) A POST
+    WAS MADE TO TWEETER.  -->
     <script src="/scripts/timeago.min.js" ></script>
+ 
+    <!-- WE BUILT THIS CHARACTER COUNTER SCRIPT USING JQUERY SO THAT OUR COUNTER WOULD UPDATE DYNAMICALLY BASED ON 
+    'KEYUP' EVENT. MORE INFORMATION ON WHAT IT DDES CAN BE FOUND IN THE COMMENTS OF THE COMPOSER-CHAR-COUNTER.JS FILE -->
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
     
   </head>
 
   <body>
-    <!-- Top nav bar (fixed) -->
-    <nav>
+    <!-- HAVING JUST RECENTLY LEARNED THE FLEXBOX METHOD WE USED IT AS THE MAIN WAY TO ORGANIZE OUR CODE. WE'VE ADDED 
+    SPACE BETWEEEN EACH SECTION OF THE CODE BELOW AND HAVE INDENTED THIER SUBSEQUENT SUBSECTIONS TO MAKE CODE CLEAR AND 
+    LEDGIBLE -->
+    <nav> 
+    <!-- nav.css -->
+
       <div id="logo-container">
         <span id="logo">tweeter</span>
       </div>
-
       <div id="new-post-container">
         <p id="new-post"><b>Write</b> a new post </p>
       </div>
     </nav>
     
     <header id="main-header">
+    <!-- header.css -->
+      
       <div id="avatar">
           <img src="/images/profile-hex.png"> 
       </div>
@@ -57,15 +77,18 @@
     </header>
 
     <main class="container">
-
+    <!-- layout.css -->
       
       <section class="new-tweet">
+        <!-- new-tweet.css -->
+        
         <div id="validation-error"></div>
 
         <header>
           <label for="tweet-text">What are you humming about?</label> 
         </header>       
-        
+    
+        <!-- MORE INFORMATION ON THE FOLLOWING POST ROUTE CAN BE FOUND AT public/scripts/client.js  -->
         <form action="/tweets" method="POST">
           <textarea name="text" id="tweet-text"></textarea>       
           
@@ -74,10 +97,11 @@
             <output name="counter" class="counter" for="tweet-text">140</output>
           </footer>
         </form>
-        
       </section>
 
       <section id="tweet-container">       
+      <!-- tweet-display.css (THIS SECTION UPDATES DYNAMICALLY BASED ON DB INPUTS AND THAT IS WHY IT IS EMPTY
+        MORE INFO ON HOW THIS FUNCTION WORKS CAN BE FOUND IN public/scripts/client.js -->
       </section>
     </main>
   </body>

@@ -1,3 +1,7 @@
+/* STYLING FOR THE TWEET DISPLAY SECTION OF TWEETER 
+NOTE: NAV IS FIXED ONLY ON DESKTOP AS IT IS NOT WELL SUITED TO MOBILE UX*/
+
+
 @media (min-width: 0px) and (max-width: 768px) {  
   nav {
     color: #FFFFFF;
