@@ -29,6 +29,7 @@
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
+    <script src="/scripts/timeago.min.js" ></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
     
   </head>
@@ -59,30 +60,25 @@
 
       
       <section class="new-tweet">
-        <div id="validation-error">
-        </div>
+        <div id="validation-error"></div>
 
-        <h2>Compose Tweet</h2>
-          <header>
+        <header>
           <label for="tweet-text">What are you humming about?</label> 
-          </header>
+        </header>       
         
-        
-          <form action="/tweets" method="POST">
-          <textarea name="text" id="tweet-text"></textarea>
-          
+        <form action="/tweets" method="POST">
+          <textarea name="text" id="tweet-text"></textarea>       
           
           <footer>
             <button type="submit" id="tweet-btn">Tweet</button> 
             <output name="counter" class="counter" for="tweet-text">140</output>
           </footer>
-        
         </form>
+        
       </section>
 
       <section id="tweet-container">       
       </section>
     </main>
-  
   </body>
 </html>
