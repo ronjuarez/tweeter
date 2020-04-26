@@ -1,15 +1,32 @@
-#main-header {
-  color: #FFFFFF;
-  background-color: #d0bb3c;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+@media (min-width: 0px) and (max-width: 768px) { 
+  #main-header {
+    color: #FFFFFF;
+    background-color: #d69900;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
+  }
+
+  #username {
+    font-size: 32px;
+    font-weight: 500;
+  }
 }
 
-#username {
-  font-size: 32px;
-  font-weight: 500;
+@media (min-width: 769px) { 
+  #main-header {
+    flex-shrink: 2;
+    color: #FFFFFF;
+    background-color: #d69900;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    margin: 10% 4% 40% 4%;
+  }
 }
