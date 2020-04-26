@@ -16,7 +16,7 @@ Tweeter is a simple, single-page Twitter clone, that was created as an individua
 
 #### Developer Notes
 
-Throughout the code we will find well commented code that will guide us through the UX of the APP. As of 04/24/2020 this is an ongoing prototype with many updates to come.
+Throughout the code we will documentation in the way of comments that will guide us through the UX of the APP. As of 04/24/2020 this is an ongoing prototype with many updates to come.
 
 ##### Dependencies
 
