@@ -3,25 +3,25 @@
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
  */
-html {
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
+@media (min-width: 0px) and (max-width: 768px) { 
+  html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
 
-/*
- * Global layout stuff
- */
+  /*
+  * Global layout stuff
+  */
 
-body {
-  color: #545149;
-  background-color: #f4f1ec;
-  font-size: 24px;
-  font-family: Source Sans Pro, sans-serif;
-  font-weight: 600;
-}
-
+  body {
+    color: #545149;
+    background-color: #f4f1ec;
+    font-size: 24px;
+    font-family: Source Sans Pro, sans-serif;
+    font-weight: 600;
+  }
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
@@ -34,4 +34,37 @@ body {
     display: flex;
     flex-direction: column;
   }
-  
+}
+@media (min-width: 769px) { 
+  html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+  /*
+  * Global layout stuff
+  */
+
+  body {
+    color: #545149;
+    background-color: #f4f1ec;
+    font-size: 24px;
+    font-family: Source Sans Pro, sans-serif;
+    font-weight: 600;
+    display: flex;
+  }
+/*
+ * Additional CSS can be defined below or in other CSS files, as per instructions
+ */
+ 
+  main {
+    margin: 0% 5% 0% 5%;
+    width: 90%;
+    top: 90%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+  }
+}
