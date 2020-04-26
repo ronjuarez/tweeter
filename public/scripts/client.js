@@ -1,15 +1,11 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
 
 $(document).ready(function() {
 
 const renderTweets = function(tweets) {
-  const renderedPosts = createTweetElement(tweets);
-
-  $('#tweet-container').prepend(renderedPosts);
+  for (let tweet of tweets) {
+    const renderedPost = createTweetElement(tweet);
+    $('#tweet-container').prepend(renderedPost);
+  }
 }
 
 const loadTweets = () => {
@@ -22,43 +18,46 @@ const loadTweets = () => {
   })
 }
 
-const createTweetElement = function(tweets) {
-
-  let markupArray = []
+const createTweetElement = function(tweet) {
   
-  for(tweet of tweets) {
     const { name, avatars, handle } = tweet.user;
     const { text } = tweet.content;
     const { created_at } = tweet;
 
-    markupArray.push(`
+    const escape =  function(str) {
+      let div = document.createElement('div');
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    }
+
+
+    let markup = `
     <article class ="tweet-display">
       <header>
-        <i class="${avatars}"></i>
+        <img src=${avatars} alt=${name}>
         <span class="full-name">${name}</span>
         <span class="username">${handle}</span>
       </header>
       <p class="tweet">
-      <span>${text}</span> 
+      <span>${escape(text)}</span> 
       </p>
     <footer> 
-      <span class="days-elapsed">${created_at}</span> 
+      <span class="days-elapsed">${timeago.format(created_at)}</span> 
       <div class="icons">
         <i class="fa fa-flag"></i>
         <i class="fa fa-heart"></i>
         <i class="fa fa-retweet"></i>
     </footer>
     </article>
-    `)
-  }
+    `;
+  return markup
 
-  return markupArray.reverse().join('');
+  
 }
 
 
   $('form').submit(function(event) { 
     event.preventDefault();
-
     let totalChar = $('#tweet-text').val(); 
     
     const renderError = (message) =>{
@@ -92,12 +91,13 @@ const createTweetElement = function(tweets) {
       data: $tweetInput
     })
     .then((response) => {
-      renderTweets([response]);
+      location.reload();
     }) 
     .catch((error) => {
       console.log('error: ', error);
     })
   })
+
 
   loadTweets();
 });
