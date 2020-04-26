@@ -1,6 +1,6 @@
 
 .new-tweet {
-  width: 90%;
+  width: 100%;
   margin: 5px 0 50px 0;
 
 }
@@ -14,18 +14,27 @@
   display: none;
 }
 
-
-
-.new-tweet {
-  width: 100%;
-  
+.new-tweet header {
+  margin-top: 5%;
 }
 
+.new-tweet label {
+  font-weight: 500;
+}
+
+.new-tweet form {
+  margin-top: 3%;
+}
+
+
 textarea {
-  top: 100%;
-  border: 0px 0px 5px 0px;
-  border-bottom: solid grey;
+  border-bottom: 5px solid grey;
   min-width: 100%;
+  background: none;
+  height: 38px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
 }
 
 .counter {
